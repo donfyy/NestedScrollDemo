@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        tools:context=".MainActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.donfyy.helpcenter.CollapsingHeaderLayout
+                android:layout_width="match_parent"
+                android:background="@drawable/ic_rectangle_751"
+                android:layout_height="212dp"
+                android:minHeight="120dp"
+                app:layout_scrollFlags="exitUntilCollapsed|scroll" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#11000000"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="30dp"
+                android:text="启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地启用 Safe Args 后，该插件会生成代码，其中包含您定义的每个操作的类和方法。对于每个操作，Safe Args 还会为每个源目的地（生成相应操作的目的地）生成一个类。生成的类的名称由源目的地类的名称和“Directions”一词组成。例如，如果目的地的名称为 SpecifyAmountFragment，则生成的类的名称为 SpecifyAmountFragmentDirections。生成的类为源目的地中定义的每个操作提供了一个静态方法。该方法会将任何定义的操作参数作为参数，并返回可传递到 navigate() 的 NavDirections 对象。
+
+例如，假设我们的导航图包含一个操作，该操作将源目的地 SpecifyAmountFragment 和接收目的地" />
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
