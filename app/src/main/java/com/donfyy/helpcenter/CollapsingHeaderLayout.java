@@ -12,12 +12,17 @@ import android.widget.Toast;
 
 import androidx.databinding.DataBindingUtil;
 
+import com.donfyy.helpcenter.databinding.CollapsingHeaderLayoutBinding;
 import com.google.android.material.appbar.AppBarLayout;
+
+import java.util.List;
 
 public class CollapsingHeaderLayout extends FrameLayout {
 
-    private com.donfyy.helpcenter.databinding.CollapsingHeaderLayoutBinding mBinding;
-
+    private CollapsingHeaderLayoutBinding mBinding;
+    private TransitionInfo mIcFaqTransition = new TransitionInfo();
+    private float verticalOffsetMax;
+    private List<HeaderItem> mHeaderItems;
     public CollapsingHeaderLayout(Context context) {
         super(context);
         init();
@@ -37,9 +42,6 @@ public class CollapsingHeaderLayout extends FrameLayout {
         super(context, attrs, defStyleAttr, defStyleRes);
         init();
     }
-
-    private TransitionInfo mIcFaqTransition = new TransitionInfo();
-    private float verticalOffsetMax;
 
     private void init() {
         mBinding = DataBindingUtil.inflate(LayoutInflater.from(getContext()), R.layout.collapsing_header_layout, this, true);
