@@ -9,6 +9,7 @@ import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 
 import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -170,8 +171,18 @@ public class CollapsingHeaderLayout extends FrameLayout {
             View view = getChildAt(i);
             if (view instanceof HeaderItemLayout) {
                 mHeaderItemLayouts.add(((HeaderItemLayout) view));
+
+                int finalI = i;
+                view.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Snackbar.make(v, "hi, i'am " + finalI, Snackbar.LENGTH_SHORT).show();
+                    }
+                });
             }
+
         }
+
     }
 
     private void calculateTransitionInfo() {
