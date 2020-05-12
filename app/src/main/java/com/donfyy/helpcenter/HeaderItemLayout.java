@@ -40,6 +40,6 @@ public class HeaderItemLayout extends LinearLayout {
     protected void onFinishInflate() {
         super.onFinishInflate();
         mIconView = getChildAt(0);
-        mTextView = getChildAt(0);
+        mTextView = getChildAt(1);
     }
 }

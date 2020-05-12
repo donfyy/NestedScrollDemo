@@ -18,6 +18,8 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_rectangle_751"
                 android:minHeight="120dp"
+                android:paddingStart="24dp"
+                android:paddingRight="24dp"
                 app:layout_scrollFlags="exitUntilCollapsed|scroll">
 
                 <TextView
@@ -30,6 +32,7 @@
 
                 <com.donfyy.helpcenter.HeaderItemLayout
                     android:layout_width="wrap_content"
+                    android:clipChildren="false"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="36dp"
                     android:layout_marginBottom="18dp"
@@ -37,7 +40,6 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/ic_faq"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:scaleType="centerCrop"
@@ -46,17 +48,41 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="FAQ"
                         android:textAppearance="@style/help_center" />
                 </com.donfyy.helpcenter.HeaderItemLayout>
+                <com.donfyy.helpcenter.HeaderItemLayout
+                    android:layout_width="wrap_content"
+                    android:clipChildren="false"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginBottom="18dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_search_faq"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="FAQFAQ"
+                        android:textAppearance="@style/help_center" />
+                </com.donfyy.helpcenter.HeaderItemLayout>
             </com.donfyy.helpcenter.CollapsingHeaderLayout>
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#11000000"

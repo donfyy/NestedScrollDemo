@@ -2,10 +2,13 @@ package com.donfyy.helpcenter;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
-import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
+
+import com.google.android.material.appbar.AppBarLayout;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -13,9 +16,13 @@ import java.util.List;
 public class CollapsingHeaderLayout extends FrameLayout {
 
     //    private CollapsingHeaderLayoutBinding mBinding;
-    private TransitionInfo mIcFaqTransition = new TransitionInfo();
     private float verticalOffsetMax;
     private List<HeaderItemLayout> mHeaderItemLayouts = new LinkedList<>();
+    private List<TransitionInfo> mTransitionInfoList = new LinkedList<>();
+    private View mTitle;
+    private float mMenuPadding = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+            30, getResources().getDisplayMetrics());
+    private float mMenuScaleFactor = 0.8f;
 
     public CollapsingHeaderLayout(Context context) {
         super(context);
@@ -90,8 +97,10 @@ public class CollapsingHeaderLayout extends FrameLayout {
         int childTop = lp.topMargin + title.getMeasuredHeight() + lp.bottomMargin + maxTopMargin;
 
         int childLeft = getPaddingLeft();
-        for (HeaderItemLayout layout : mHeaderItemLayouts) {
-            int childLeftReal = childLeft + itemWidth / 2 - layout.getMeasuredWidth() / 2;
+        int size = mHeaderItemLayouts.size();
+        for (int i = 0; i < size; i++) {
+            HeaderItemLayout layout = mHeaderItemLayouts.get(i);
+            int childLeftReal = childLeft + itemWidth / 2 - layout.getMeasuredWidth() / 2 + i * itemWidth;
             layout.layout(
                     childLeftReal,
                     childTop,
@@ -103,44 +112,55 @@ public class CollapsingHeaderLayout extends FrameLayout {
     }
 
     private void init() {
-        /*mBinding = DataBindingUtil.inflate(LayoutInflater.from(getContext()), R.layout.collapsing_header_layout, this, true);
-
-        final ImageView icFaq = mBinding.icFaq;
-        icFaq.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "hi", Toast.LENGTH_SHORT).show();
-            }
-        });
+//        register scroll listener
         getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                calculateTransitionInfo(icFaq);
+                getViewTreeObserver().removeOnGlobalLayoutListener(this);
+
                 ViewParent parent = getParent();
-                if (parent instanceof AppBarLayout) {
-                    ((AppBarLayout) parent).addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-                        @Override
-                        public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                            mBinding.title.setTranslationY(-verticalOffset);
-                            icFaq.setTranslationY(mIcFaqTransition.getTranslationOffset().y / verticalOffsetMax * verticalOffset);
-                            icFaq.setTranslationX(mIcFaqTransition.getTranslationOffset().x / verticalOffsetMax * verticalOffset);
-                            icFaq.setScaleX(1 - mIcFaqTransition.getScaleOffset().x / verticalOffsetMax * verticalOffset);
-                            icFaq.setScaleY(1 - mIcFaqTransition.getScaleOffset().y / verticalOffsetMax * verticalOffset);
-                        }
-                    });
-                } else {
-                    throw new IllegalArgumentException("CollapsingHeaderLayout must be used with com.google.android.material.appbar.AppBarLayout");
+                if (!(parent instanceof AppBarLayout)) {
+                    return;
                 }
 
-                getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                calculateTransitionInfo();
+                AppBarLayout appBarLayout = (AppBarLayout) parent;
+                appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+                    @Override
+                    public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                        mTitle.setTranslationY(-verticalOffset);
+
+                        if (verticalOffset == 0) {
+                            for (HeaderItemLayout headerItemLayout : mHeaderItemLayouts) {
+                                headerItemLayout.getTextView().setTransitionAlpha(1);
+                            }
+                        } else {
+                            for (HeaderItemLayout headerItemLayout : mHeaderItemLayouts) {
+                                headerItemLayout.getTextView().setTransitionAlpha(0);
+                            }
+                        }
+
+                        for (int i = 0; i < mHeaderItemLayouts.size(); i++) {
+                            HeaderItemLayout layout = mHeaderItemLayouts.get(i);
+                            TransitionInfo mIcFaqTransition = mTransitionInfoList.get(i);
+
+                            layout.setTranslationY(mIcFaqTransition.getTranslationOffset().y / verticalOffsetMax * verticalOffset);
+                            layout.setTranslationX(mIcFaqTransition.getTranslationOffset().x / verticalOffsetMax * verticalOffset);
+                            layout.getIconView().setScaleX(1 - mIcFaqTransition.getScaleOffset().x / verticalOffsetMax * verticalOffset);
+                            layout.getIconView().setScaleY(1 - mIcFaqTransition.getScaleOffset().y / verticalOffsetMax * verticalOffset);
+                        }
+
+                    }
+                });
             }
-        });*/
+        });
     }
 
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
 
+        mTitle = getChildAt(0);
         findAllHeaderItems();
     }
 
@@ -154,15 +174,24 @@ public class CollapsingHeaderLayout extends FrameLayout {
         }
     }
 
-    private void calculateTransitionInfo(ImageView icFaq) {
-       /* verticalOffsetMax = getMinimumHeight() - getHeight();
-        float yEnd = mBinding.title.getTop() - verticalOffsetMax + mBinding.title.getHeight() / 2f;
-        float yStart = icFaq.getTop() + icFaq.getHeight() / 2f;
-        float yOffsetMax = yEnd - yStart;
-        float xOffsetMax = getWidth() / 2f - icFaq.getLeft();
-        float yScaleOffset = -(36 - 40) / 40f;
-        float xScaleOffset = -(36 - 40) / 40f;
-        mIcFaqTransition.setTranslationOffset(xOffsetMax, yOffsetMax);
-        mIcFaqTransition.setScaleOffset(xScaleOffset, yScaleOffset);*/
+    private void calculateTransitionInfo() {
+        mTransitionInfoList = new LinkedList<>();
+        for (int i = 0; i < mHeaderItemLayouts.size(); i++) {
+            HeaderItemLayout headerItemLayout = mHeaderItemLayouts.get(i);
+            TransitionInfo mIcFaqTransition = new TransitionInfo();
+            View icFaq = headerItemLayout.getIconView();
+            verticalOffsetMax = getMinimumHeight() - getHeight();
+            float yEnd = mTitle.getTop() - verticalOffsetMax + mTitle.getHeight() / 2f;
+            float yStart = headerItemLayout.getTop() + icFaq.getHeight() / 2f;
+            float yOffsetMax = yEnd - yStart;
+            float width = (icFaq.getWidth() * mMenuScaleFactor) * (mHeaderItemLayouts.size() - i - 1) + (mHeaderItemLayouts.size() - i - 1) * mMenuPadding;
+            float xOffsetMax = getWidth() - getPaddingRight() - icFaq.getWidth() * mMenuScaleFactor / 2 - headerItemLayout.getWidth() / 2f - width - headerItemLayout.getLeft();
+            float yScaleOffset = 1 - mMenuScaleFactor;
+            float xScaleOffset = 1 - mMenuScaleFactor;
+            mIcFaqTransition.setTranslationOffset(xOffsetMax, yOffsetMax);
+            mIcFaqTransition.setScaleOffset(xScaleOffset, yScaleOffset);
+
+            mTransitionInfoList.add(mIcFaqTransition);
+        }
     }
 }
